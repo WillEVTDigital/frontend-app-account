@@ -18,6 +18,8 @@ import AccountSettingsPage, { NotFoundPage } from './account-settings';
 import IdVerificationPage from './id-verification';
 import messages from './i18n';
 
+import GoogleTagManager from './utils/externalScripts';
+
 import './index.scss';
 import Head from './head/Head';
 import NotificationCourses from './notification-preferences/NotificationCourses';
@@ -27,6 +29,7 @@ subscribe(APP_READY, () => {
   ReactDOM.render(
     <AppProvider store={configureStore()}>
       <Head />
+      <GoogleTagManager />
       <Routes>
         <Route element={(
           <div className="d-flex flex-column" style={{ minHeight: '100vh' }}>
