@@ -56,6 +56,16 @@ const messages = defineMessages({
     defaultMessage: 'Site Preferences',
     description: 'The site preferences section heading.',
   },
+  'account.settings.section.marketing.preferences': {
+    id: 'account.settings.section.marketing.preferences',
+    defaultMessage: 'Marketing Preferences',
+    description: 'The marketing preferences section heading.',
+  },
+  'account.settings.section.marketing.preferences.description': {
+    id: 'account.settings.section.marketing.preferences.description',
+    defaultMessage: 'I would like the following updates by email:',
+    description: 'The marketing preferences section description.',
+  },
   'account.settings.section.linked.accounts': {
     id: 'account.settings.section.linked.accounts',
     defaultMessage: 'Linked Accounts',

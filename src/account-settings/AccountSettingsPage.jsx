@@ -46,12 +46,14 @@ import {
   COUNTRY_WITH_STATES,
   COPPA_COMPLIANCE_YEAR,
   WORK_EXPERIENCE_OPTIONS,
+  MARKETING_PREFERENCES_OPTIONS,
   getStatesList,
 } from './data/constants';
 import { fetchSiteLanguages } from './site-language';
 import DemographicsSection from './demographics/DemographicsSection';
 import { fetchCourseList } from '../notification-preferences/data/thunks';
 import { withLocation, withNavigate } from './hoc';
+import MarketingPreferencesSection from './marketing-preferences/MarketingPreferencesSection';
 
 class AccountSettingsPage extends React.Component {
   constructor(props, context) {
@@ -68,6 +70,7 @@ class AccountSettingsPage extends React.Component {
       '#demographics-information': React.createRef(),
       '#social-media': React.createRef(),
       '#site-preferences': React.createRef(),
+      '#marketing-preferences': React.createRef(),
       '#linked-accounts': React.createRef(),
       '#delete-account': React.createRef(),
     };
@@ -146,6 +149,10 @@ class AccountSettingsPage extends React.Component {
     workExperienceOptions: WORK_EXPERIENCE_OPTIONS.map(key => ({
       value: key,
       label: key === '' ? this.props.intl.formatMessage(messages['account.settings.field.work.experience.options.empty']) : key,
+    })),
+    marketingPreferencesOptions: MARKETING_PREFERENCES_OPTIONS.map(({ value, label }) => ({
+      value,
+      label: label === '' ? this.props.intl.formatMessage(messages['account.settings.field.marketing.preferences.options.empty']) : label,
     })),
   }));
 
@@ -481,10 +488,9 @@ class AccountSettingsPage extends React.Component {
       countryOptions,
       stateOptions,
       languageProficiencyOptions,
-      yearOfBirthOptions,
       educationLevelOptions,
-      genderOptions,
       workExperienceOptions,
+      marketingPreferencesOptions,
     } = this.getLocalizedOptions(this.context.locale, this.props.formValues.country);
 
     // Show State field only if the country is US (could include Canada later)
@@ -626,7 +632,6 @@ class AccountSettingsPage extends React.Component {
           />
           {this.renderSecondaryEmailField(editableFieldProps)}
           <ResetPassword email={this.props.formValues.email} />
-          
           <EditableSelectField
             name="country"
             type="select"
@@ -764,6 +769,22 @@ class AccountSettingsPage extends React.Component {
               // the endpoint will not accept an empty string. it must be null
               this.handleSubmit(formId, value || null);
             }}
+          />
+        </div>
+
+        <div id="marketing-preferences" ref={this.navLinkRefs['#marketing-preferences']}>
+          <h2 className="section-heading h4 mb-3">{this.props.intl.formatMessage(messages['account.settings.section.marketing.preferences'])}</h2>
+          <p>
+            {this.props.intl.formatMessage(
+              messages['account.settings.section.marketing.preferences.description'],
+              { siteName: getConfig().SITE_NAME },
+            )}
+          </p>
+          <MarketingPreferencesSection
+            name="marketing_preferences"
+            value={this.props.formValues?.extended_profile?.find(field => field.field_name === 'marketing_preferences')?.field_value}
+            options={marketingPreferencesOptions}
+            {...editableFieldProps}
           />
         </div>
 
