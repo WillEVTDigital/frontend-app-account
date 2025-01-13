@@ -28,6 +28,7 @@ const JumpNav = ({
           'demographics-information',
           'social-media',
           'site-preferences',
+          'marketing-preferences',
           'linked-accounts',
           'delete-account',
         ]}
@@ -60,6 +61,11 @@ const JumpNav = ({
         <li>
           <NavHashLink to="#site-preferences">
             {intl.formatMessage(messages['account.settings.section.site.preferences'])}
+          </NavHashLink>
+        </li>
+        <li>
+          <NavHashLink to="#marketing-preferences">
+            {intl.formatMessage(messages['account.settings.section.marketing.preferences'])}
           </NavHashLink>
         </li>
         <li>
