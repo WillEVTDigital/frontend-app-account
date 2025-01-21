@@ -1,4 +1,5 @@
 import { camelCaseObject } from '@edx/frontend-platform';
+import { EMAIL_CADENCE } from './constants';
 import {
   fetchCourseListSuccess,
   fetchCourseListFetching,
@@ -14,6 +15,7 @@ import {
   getCourseList,
   getCourseNotificationPreferences,
   patchAppPreferenceToggle,
+  patchChannelPreferenceToggle,
   patchPreferenceToggle,
 } from './service';
 
@@ -57,6 +59,7 @@ const normalizePreferences = (responseData) => {
         push: preferences[appId].notificationTypes[preferenceId].push,
         email: preferences[appId].notificationTypes[preferenceId].email,
         info: preferences[appId].notificationTypes[preferenceId].info || '',
+        emailCadence: preferences[appId].notificationTypes[preferenceId].emailCadence || EMAIL_CADENCE.DAILY,
       }
     ));
     nonEditable[appId] = preferences[appId].nonEditable;
@@ -144,6 +147,18 @@ export const updatePreferenceToggle = (
         notificationChannel,
         !value,
       ));
+      dispatch(fetchNotificationPreferenceFailed());
+    }
+  }
+);
+
+export const updateChannelPreferenceToggle = (courseId, notificationApp, notificationChannel, value) => (
+  async (dispatch) => {
+    try {
+      const data = await patchChannelPreferenceToggle(courseId, notificationApp, notificationChannel, value);
+      const normalizedData = normalizePreferences(camelCaseObject(data));
+      dispatch(fetchNotificationPreferenceSuccess(courseId, normalizedData));
+    } catch (errors) {
       dispatch(fetchNotificationPreferenceFailed());
     }
   }

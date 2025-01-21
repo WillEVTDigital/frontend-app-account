@@ -56,6 +56,16 @@ const messages = defineMessages({
     defaultMessage: 'Site Preferences',
     description: 'The site preferences section heading.',
   },
+  'account.settings.section.marketing.preferences': {
+    id: 'account.settings.section.marketing.preferences',
+    defaultMessage: 'Marketing Preferences',
+    description: 'The marketing preferences section heading.',
+  },
+  'account.settings.section.marketing.preferences.description': {
+    id: 'account.settings.section.marketing.preferences.description',
+    defaultMessage: 'I would like the following updates by email:',
+    description: 'The marketing preferences section description.',
+  },
   'account.settings.section.linked.accounts': {
     id: 'account.settings.section.linked.accounts',
     defaultMessage: 'Linked Accounts',
@@ -569,6 +579,21 @@ const messages = defineMessages({
     id: 'notification.preferences.notifications.label',
     defaultMessage: 'Notifications',
     description: 'Label for Notifications',
+  },
+  'account.settings.field.work.experience': {
+    id: 'account.settings.work.experience',
+    defaultMessage: 'Work Experience',
+    description: 'Label for account settings Work experience field.',
+  },
+  'account.settings.field.work.experience.empty': {
+    id: 'account.settings.field.work.experience.empty',
+    defaultMessage: 'Add work experience',
+    description: 'Placeholder for empty account settings work experience field.',
+  },
+  'account.settings.field.work.experience.options.empty': {
+    id: 'account.settings.field.work.experience.options.empty',
+    defaultMessage: 'Select work experience',
+    description: 'Placeholder for the work experience levels dropdown.',
   },
 });
 

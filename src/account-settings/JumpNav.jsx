@@ -1,7 +1,7 @@
 import { getConfig } from '@edx/frontend-platform';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
-import { breakpoints, useWindowSize, Icon } from '@edx/paragon';
-import { OpenInNew } from '@edx/paragon/icons';
+import { breakpoints, useWindowSize, Icon } from '@openedx/paragon';
+import { OpenInNew } from '@openedx/paragon/icons';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -28,6 +28,7 @@ const JumpNav = ({
           'demographics-information',
           'social-media',
           'site-preferences',
+          'marketing-preferences',
           'linked-accounts',
           'delete-account',
         ]}
@@ -60,6 +61,11 @@ const JumpNav = ({
         <li>
           <NavHashLink to="#site-preferences">
             {intl.formatMessage(messages['account.settings.section.site.preferences'])}
+          </NavHashLink>
+        </li>
+        <li>
+          <NavHashLink to="#marketing-preferences">
+            {intl.formatMessage(messages['account.settings.section.marketing.preferences'])}
           </NavHashLink>
         </li>
         <li>

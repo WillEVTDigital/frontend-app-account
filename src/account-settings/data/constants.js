@@ -34,6 +34,21 @@ export const GENDER_OPTIONS = [
   'm',
   'o',
 ];
+export const WORK_EXPERIENCE_OPTIONS = [
+  '',
+  '0',
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10+',
+
+];
 
 export const COUNTRY_WITH_STATES = 'US';
 
@@ -120,3 +135,14 @@ export function getStatesList(country) {
 export const DECLINED = 'declined';
 export const SELF_DESCRIBE = 'self-describe';
 export const OTHER = 'other';
+
+export const MARKETING_PREFERENCES_OPTIONS = [
+  {
+    value: 'Training Bulletin',
+    label: 'Training Bulletin',
+  },
+  {
+    value: 'Futures eLearning',
+    label: 'Futures eLearning',
+  },
+];

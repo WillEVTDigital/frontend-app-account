@@ -75,17 +75,17 @@ const siteLanguageList = [
     released: true,
   },
   {
-    code: 'pt',
+    code: 'pt-pt',
     name: 'Português',
     released: true,
   },
   {
-    code: 'it',
+    code: 'it-it',
     name: 'Italian',
     released: true,
   },
   {
-    code: 'de',
+    code: 'de-de',
     name: 'German',
     released: true,
   },
@@ -97,6 +97,36 @@ const siteLanguageList = [
   {
     code: 'fr-ca',
     name: 'French (CA)',
+    released: true,
+  },
+  {
+    code: 'te',
+    name: 'తెలుగు',
+    released: true,
+  },
+  {
+    code: 'da',
+    name: 'dansk',
+    released: true,
+  },
+  {
+    code: 'el',
+    name: 'Ελληνικά',
+    released: true,
+  },
+  {
+    code: 'es-es',
+    name: 'Español (España)',
+    released: true,
+  },
+  {
+    code: 'sw',
+    name: 'Kiswahili',
+    released: true,
+  },
+  {
+    code: 'tr-tr',
+    name: 'Türkçe (Türkiye)',
     released: true,
   },
 ];
